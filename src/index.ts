@@ -4,7 +4,9 @@ import Router from '@koa/router'
 import fetch, { RequestInit } from 'node-fetch'
 
 const base = 'https://grid.nga.mil/grid/map'
-const sessionid = 'rhs6fhajqj8201vsvswtsnw9z7tf3fcx'
+const [sessionid] = process.argv.slice(2)
+
+if (!sessionid) throw new Error('Please supply sessionid token')
 
 const app = new Koa()
 const router = new Router()
