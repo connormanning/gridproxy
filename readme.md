@@ -1,2 +1,17 @@
-# Typescript/Jest project template
-![test](https://github.com/landrushing/template/workflows/test/badge.svg)
+# Grid proxy
+
+This is a toy proxy to some gridmap routes. To use it, you must first get a
+`sessionid` token from Grid. You can do this by looking at the `sessionid`
+cookie in the network tab on an authenticated request made by the map display
+while logged into Grid.
+
+![sessionid cookie](./sessionid.png)
+
+```
+yarn install
+yarn start YOUR_SESSIONID_HERE
+```
+
+It should be emphasized that nothing here is anywhere close to suitable in
+production for anything of any sort - this is a quick-and-dirty way to get
+data from Grid without doing anything the proper way.
