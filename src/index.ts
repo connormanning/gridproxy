@@ -3,10 +3,16 @@ import Koa from 'koa'
 import Router from '@koa/router'
 import fetch, { RequestInit } from 'node-fetch'
 
-const base = 'https://grid.nga.mil/grid/map'
-const [sessionid] = process.argv.slice(2)
+const [sessionid, domain] = process.argv.slice(2)
 
+let base: string
 if (!sessionid) throw new Error('Please supply sessionid token')
+if (!domain) {
+  base = 'https://grid.nga.mil/grid/map'
+} else {
+  base = `https://${domain}/grid/map`
+}
+console.log(`proxying to ${base}`)
 
 const app = new Koa()
 const router = new Router()
